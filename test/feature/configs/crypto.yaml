@@ -18,6 +18,8 @@ OrdererOrgs:
     Domain: example.com
     Specs:
       - Hostname: orderer
+      - Hostname: orderer1
+      - Hostname: orderer2
 
 PeerOrgs:
   - Name: Org1ExampleCom

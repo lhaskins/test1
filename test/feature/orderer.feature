@@ -18,9 +18,9 @@ Feature: Orderer Service
 
 @skip
 Scenario: FAB-1335: Resilient Kafka Orderer and Brokers
-    Given the kafka default replication factor is 3
-    And the orderer Batchsize MaxMessageCount is 20
-    And the orderer BatchTimeout is 10 minutes
+    Given the Kafka Default Replication Factor environment variable is 3
+    And the Orderer General Batchsize environment variable is 20
+    And the Orderer General BatchTimeout environment variable is 10 minutes
     And a bootstrapped orderer network of type kafka with 3 brokers
     When 10 unique messages are broadcasted
     Then we get 10 successful broadcast responses
@@ -67,9 +67,9 @@ Scenario: FAB-1306: Multiple organizations in a cluster - remove all, reinstate 
 
 @skip
 Scenario: FAB-3851: Message Payloads Greater than 1MB
-    Given I have a bootstrapped fabric network
-    When a user deploys chaincode
-    Then the chaincode is deployed
+    Given this test needs to be implemented
+    When a user gets a chance
+    Then the test will run
 
 @skip
 #@doNotDecompose

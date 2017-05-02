@@ -32,6 +32,10 @@ Profiles:
         Orderer:
             <<: *OrdererDefaults
             OrdererType: kafka
+            Addresses:
+                - orderer.example.com:7050
+                - orderer1.example.com:7050
+                - orderer2.example.com:7050
             Organizations:
                 - *ExampleCom
         Application:
@@ -76,6 +80,7 @@ Profiles:
     SysTestChannel:
         Consortium: SampleConsortium
         Application:
+            <<: *ApplicationDefaults
             Organizations:
                 - *Org1ExampleCom
                 - *Org2ExampleCom
@@ -105,7 +110,7 @@ Organizations:
         Name: Organization1
         ID: Org1
         MSPDir: ./peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp
-        AdminPrincipal: Role.MEMBER
+        AdminPrincipal: Role.ADMIN
         AnchorPeers:
             - Host: peer0.org1.example.com
               Port: 7051
@@ -122,12 +127,14 @@ Organizations:
     - &ExampleCom
         Name: ExampleCom
         ID: example.com
+        AdminPrincipal: Role.ADMIN
         MSPDir: ./ordererOrganizations/example.com/msp
 
     - &Org1ExampleCom
         Name: Org1ExampleCom
         ID: org1.example.com
         MSPDir: ./peerOrganizations/org1.example.com/msp
+        AdminPrincipal: Role.ADMIN
         AnchorPeers:
             - Host: peer0.org1.example.com
               Port: 7051
@@ -136,6 +143,7 @@ Organizations:
         Name: Org2ExampleCom
         ID: org2.example.com
         MSPDir: ./peerOrganizations/org2.example.com/msp
+        AdminPrincipal: Role.ADMIN
         AnchorPeers:
             - Host: peer0.org2.example.com
               Port: 7051
@@ -187,7 +195,10 @@ Orderer: &OrdererDefaults
         # Brokers: A list of Kafka brokers to which the orderer connects.
         # NOTE: Use IP:port notation
         Brokers:
-            - 127.0.0.1:9092
+            - kafka0:9092
+            - kafka1:9092
+            - kafka2:9092
+            - kafka3:9092
 
     # Organizations is the list of orgs which are defined as participants on
     # the orderer side of the network.

@@ -18,24 +18,24 @@ Feature: Bootstrapping Hyperledger Fabric
 
 @skip
 Scenario: FAB-3635: Configuration files generated correctly
-    Given I have a bootstrapped fabric network
-    When a user deploys chaincode
-    Then the chaincode is deployed
+    Given this test needs to be implemented
+    When a user gets a chance
+    Then the test will run
 
 @skip
 Scenario: FAB-3854: Ensure genesis block contains correct data
-    Given I have a bootstrapped fabric network
-    When a user deploys chaincode
-    Then the chaincode is deployed
+    Given this test needs to be implemented
+    When a user gets a chance
+    Then the test will run
 
 @skip
 Scenario: FAB-3856: Verify crypto material (non-TLS)
-    Given I have a bootstrapped fabric network
-    When a user deploys chaincode
-    Then the chaincode is deployed
+    Given this test needs to be implemented
+    When a user gets a chance
+    Then the test will run
 
 @skip
 Scenario: FAB-3858: Verify crypto material (TLS)
-    Given I have a bootstrapped fabric network
-    When a user deploys chaincode
-    Then the chaincode is deployed
+    Given this test needs to be implemented
+    When a user gets a chance
+    Then the test will run

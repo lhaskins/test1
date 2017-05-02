@@ -159,12 +159,12 @@ class Composition:
                 process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=self.getEnv())
                 output, _error = process.communicate()
                 if "Error: " in _error or "CRIT " in _error:
-                    raise Exception, _error
+                    raise Exception(_error)
             else:
                 process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=self.getEnv())
                 output, _error = process.communicate()
                 if _error:
-                    raise Exception, _error
+                    raise Exception(_error)
         except:
             err = "Error occurred {0}: {1}".format(cmd, sys.exc_info()[1])
             output = err
@@ -210,3 +210,5 @@ class Composition:
         for container in container_list:
             if container != '':
                 output = subprocess.check_output(['docker', 'rm', '-f', container], env=env)
+        cmd = ["docker", "rmi", "-f", "$(docker images -a | grep .example.com-mycc-0)"]
+        output = subprocess.call(cmd, env=env)

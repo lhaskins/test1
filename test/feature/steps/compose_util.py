@@ -167,6 +167,7 @@ class Composition:
                     raise Exception(_error)
         except:
             err = "Error occurred {0}: {1}".format(cmd, sys.exc_info()[1])
+            print(err)
             output = err
 
         # Don't rebuild if ps command

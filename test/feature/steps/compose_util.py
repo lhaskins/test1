@@ -107,7 +107,7 @@ class Composition:
 
     def getEnv(self):
         myEnv = os.environ.copy()
-        for key,value in self.getEnvAdditions().iteritems():
+        for key,value in self.getEnvAdditions().items():
             myEnv[key] = value
         return myEnv
 

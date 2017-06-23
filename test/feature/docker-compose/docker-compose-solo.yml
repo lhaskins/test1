@@ -221,6 +221,7 @@ services:
         command: /bin/bash -c 'sleep 6000000000000000000'
         volumes:
             - /var/run/:/host/var/run/
+            - ../../../chaincode/go/:/opt/gopath/src/github.com/hyperledger/fabric/examples/chaincode/go
             - ../configs:/var/hyperledger/configs
             - ../configs/${CORE_PEER_NETWORKID}/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls:/var/hyperledger/tls
         depends_on:
